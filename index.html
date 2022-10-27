@@ -6,10 +6,55 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Search App</title>
+    <link rel="icon" href="assets/images/favicon.png">
     <link rel="stylesheet" href="assets/style.css">
     <script src="lib/vue.global.js"></script>
 </head>
 <body>
+
+<div id="app">
+    <nav class="nav-bar margin-bottom-80px fl-center txt_center"><h1>Vue - Search</h1></nav>
+    <div class="container margin-bottom-80px">
+        <!--Search-->
+        <div class="product-search margin-bottom-80px">
+            <form class="ps-relative">
+                <label>
+                    <input type="text" placeholder="search">
+                    <input type="submit" value="Submit" class="btn_primary btn_submit txt_center ps-absolute t0 r0 b0">
+                </label>
+            </form>
+        </div>
+
+        <!--Product-->
+        <div class="product-display d-flex">
+            <div class="product-list">
+                <ul>
+                    <li class="fl-center-v" v-for="product in products">
+                        <div class="product-image image-cover">
+                            <img :src="product.image" alt="">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-info__name">
+                                <h3>{{ product.name }}</h3>
+                                <p>Weight: {{ product.weight }}cts</p>
+                                <p>Price: {{ product.price }}$</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-sell">
+                <div class="product-sell__inner">
+                    <div class="product-sell__title txt_center margin-bottom-40px"><h4>All product chosen</h4></div>
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="fl-center">App created by Tung Nguyen</footer>
+</div>
 
 <!--Import App-->
 <script src="assets/script.js"></script>
