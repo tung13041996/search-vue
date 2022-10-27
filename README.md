@@ -1,3 +1,3 @@
 # VueJS - Search
 
-A small app to search course from a list and choose all course and calculate total money to pay  
+A small app to search gemstone from a list and choose all gemstone we want to buy, then calculate total money to pay  
