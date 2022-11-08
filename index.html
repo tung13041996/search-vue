@@ -16,41 +16,12 @@
     <nav class="nav-bar margin-bottom-80px fl-center txt_center"><h1>Vue - Search</h1></nav>
     <div class="container margin-bottom-80px">
         <!--Search-->
-        <div class="product-search margin-bottom-80px">
-            <form class="ps-relative">
-                <label>
-                    <input type="text" placeholder="search">
-                    <input type="submit" value="Submit" class="btn_primary btn_submit txt_center ps-absolute t0 r0 b0">
-                </label>
-            </form>
-        </div>
+        <product-form></product-form>
 
         <!--Product-->
         <div class="product-display d-flex">
-            <div class="product-list">
-                <ul>
-                    <li class="fl-center-v" v-for="product in products">
-                        <div class="product-image image-cover">
-                            <img :src="product.image" alt="">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-info__name">
-                                <h3>{{ product.name }}</h3>
-                                <p>Weight: {{ product.weight }}cts</p>
-                                <p>Price: {{ product.price }}$</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="product-sell">
-                <div class="product-sell__inner">
-                    <div class="product-sell__title txt_center margin-bottom-40px"><h4>All product chosen</h4></div>
-                    <ul>
-
-                    </ul>
-                </div>
-            </div>
+            <product-list></product-list>
+            <product-sell></product-sell>
         </div>
     </div>
     <footer class="fl-center">App created by Tung Nguyen</footer>
@@ -58,6 +29,11 @@
 
 <!--Import App-->
 <script src="assets/script.js"></script>
+
+<!--Import Component-->
+<script src="components/ProductForm.js"></script>
+<script src="components/ProductList.js"></script>
+<script src="components/ProductSell.js"></script>
 
 <!--Mount App-->
 <script>
