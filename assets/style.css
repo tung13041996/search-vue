@@ -37,7 +37,7 @@ html {
     background:#f6f6f6;
 }
 .container {
-    max-width:1280px; margin-left:auto; margin-right:auto;
+    width:100%; max-width:1280px; margin-left:auto; margin-right:auto;
     padding-left:40px; padding-right:40px;
 }
 a, button {color:#000; cursor:pointer; transition:all .3s ease;}
@@ -50,11 +50,13 @@ a, button {color:#000; cursor:pointer; transition:all .3s ease;}
 }
 .btn_primary:not(.disabled):hover {background:#000; color:#fff;}
 .btn_primary.disabled {cursor:not-allowed; opacity:.5;}
+button.disabled {opacity:.5; cursor:not-allowed;}
 
 /* Spacing */
 .margin-bottom-80px {margin-bottom:80px;}
 .margin-bottom-40px {margin-bottom:40px;}
 .margin-bottom-20px {margin-bottom:20px;}
+.margin-bottom-10px {margin-bottom:10px;}
 
 /* CSS Class */
 .d-flex {display:flex;}
@@ -72,6 +74,10 @@ a, button {color:#000; cursor:pointer; transition:all .3s ease;}
 /**********************************
 * Element
 **********************************/
+#app {
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:space-between;
+}
 /* Nav */
 nav, footer {min-height:80px; background:linear-gradient(to bottom, skyblue, mediumturquoise);}
 
@@ -102,16 +108,48 @@ nav, footer {min-height:80px; background:linear-gradient(to bottom, skyblue, med
     width:150px; height:150px; padding:10px;
     background:#fff; outline:1px solid #000;
 }
-.product-list ul li:not(:last-child) {
+.product-list ul li {cursor:pointer;}
+.product-list ul li:not(:last-child),
+.product-sell ul li:not(:last-child) {
     margin-bottom:20px; padding-bottom:20px; border-bottom:1px dashed rgba(112, 112, 112, .2);
 }
 .product-info {padding-left:20px;}
 
 /* Product > sell */
-.product-sell__inner {
-    padding:40px 20px; max-width:300px; margin-left:auto;
+.product-sell__inner, .product-list__inner, .product-sell__total {
+    padding:25px 20px;
     border:1px solid rgba(112, 112, 112, .3); border-radius:10px;
-    position:sticky; top:20px; transition:all .3s ease;
 }
+.product-sell .product-image {width:100px; height:100px;}
+.product-sell .product-info {width:calc(100% - 100px);}
+.product-sell .product-info__inner > *:not(:last-child) {margin-bottom:5px;}
+.product-info__button-group {gap:10px;}
+
+/* Product > Bill */
+.product-sell__total {padding-left:0; padding-right:0;}
+.product-sell__total-title {margin-bottom:20px;}
+.product-sell__total-detail {
+    margin:0 20px; border:1px solid #000;
+    text-align:center;
+}
+.product-sell__total-label {border-bottom:1px solid #000;}
+.product-sell__total-label-id, .product-sell__total-id {width:20%;}
+.product-sell__total-label-price, .product-sell__total-price {width:20%;}
+.product-sell__total-label-number, .product-sell__total-number {width:25%;}
+.product-sell__total-label-total,.product-sell__total-sum {width:35%;}
+.product-sell__total-label > *:not(:last-child),
+.product-sell__total-detail ul li > *:not(:last-child) {border-right:1px solid #000;}
+.product-sell__total-label > *,
+.product-sell__total-detail ul li > * {padding:5px 0;}
+.product-sell__total-detail ul li:not(:last-child) {
+    margin-bottom:0; padding-bottom:0; border-bottom:1px solid #000;
+}
+.product-sell__total-bill {border-top:1px solid #000;}
+.product-sell__total-bill > * {padding:10px 0; }
+.product-sell__total-bill-label {width:65%; border-right:1px solid #000;}
+.product-sell__total-bill-money {width:35%;}
+
+
+
 
 
