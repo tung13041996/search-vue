@@ -15,117 +15,24 @@
 <div id="app">
     <nav class="nav-bar margin-bottom-80px fl-center txt_center"><h1>Vue - Search</h1></nav>
     <div class="container margin-bottom-80px">
-        <!--Search-->
-        <div class="product-search margin-bottom-80px">
-            <form class="ps-relative">
-                <label>
-                    <input type="text"
-                           placeholder="Search Product"
-                           v-model="inputStr">
-                </label>
-            </form>
-        </div>
-
-        <!--Product-->
-        <div class="product-display d-flex">
-            <div class="product-list">
-                <div class="product-list__title margin-bottom-20px txt_center">
-                    <h2>All product we have</h2>
-                </div>
-                <div class="product-list__inner">
-                    <div v-if="addProduct.length === 0" class="txt_center">
-                        <h3>No Item Found</h3>
-                    </div>
-                    <ul v-else>
-                        <li v-for="product in addProduct">
-                            <div class="product-list__item fl-center-v" @click="addProductChoose(product.id)">
-                                <div class="product-image image-cover" :class="{'choose': product.isChoose}">
-                                    <img :src="product.image" alt="">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-info__inner margin-bottom-20px">
-                                        <h3>{{ product.name }}</h3>
-                                        <p><strong>ID:</strong> {{ product.id }}</p>
-                                        <p><strong>Price:</strong> {{ product.price }}$</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="product-sell">
-                <div class="product-sell__title margin-bottom-20px txt_center">
-                    <h2>Product chosen</h2>
-                </div>
-                <div class="product-sell__inner margin-bottom-20px">
-                    <div v-if="productsChoose.length === 0" class="txt_center">
-                        <h3>No Item Choose</h3>
-                    </div>
-                    <ul v-else>
-                        <li class="fl-center-v" v-for="product in productsChoose">
-                            <div class="product-image image-cover">
-                                <img :src="product.image" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-info__inner margin-bottom-10px">
-                                    <h3>{{ product.name }}</h3>
-                                    <p>Price: {{ product.price }}$</p>
-                                    <p>Number: {{ product.number }}</p>
-                                </div>
-                                <div class="product-info__button-group fl-center-v">
-                                    <button @click="decreaseProductChoose(product.id)"
-                                            :class="{'disabled' : product.number===0}">-
-                                    </button>
-                                    <button @click="increaseProductChoose(product.id)">+</button>
-                                    <button @click="removeProductChoose(product.id)">Remove</button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="product-sell__total" v-if="productsChoose.length > 0">
-                    <div class="product-sell__total-title txt_center">
-                        <h4>Bill detail</h4>
-                    </div>
-                    <div class="product-sell__total-detail">
-                        <div class="product-sell__total-label fl-center-v">
-                            <div class="product-sell__total-label-id">ID</div>
-                            <div class="product-sell__total-label-price">Price</div>
-                            <div class="product-sell__total-label-number">Number</div>
-                            <div class="product-sell__total-label-total">Total</div>
-                        </div>
-                        <ul>
-                            <li class="fl-center-v" v-for="product in productsChoose">
-                                <div class="product-sell__total-id">{{ product.id }}</div>
-                                <div class="product-sell__total-price">{{ product.price }}$</div>
-                                <div class="product-sell__total-number">{{ product.number }}</div>
-                                <div class="product-sell__total-sum">{{ product.price * product.number }}</div>
-                            </li>
-                        </ul>
-                        <div class="product-sell__total-bill fl-center-v">
-                            <div class="product-sell__total-bill-label">Total Bill</div>
-                            <div class="product-sell__total-bill-money">{{ productBill }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <product-section></product-section>
     </div>
-    <footer class="fl-center">App created by Tung Nguyen</footer>
+    <footer class="fl-center"><p>App was created by <strong>Tung Nguyen</strong></p></footer>
 </div>
 
 <!--Import App-->
 <script src="assets/script.js"></script>
 
 <!--Import Component-->
-<!--<script src="components/ProductForm.js"></script>-->
-<!--<script src="components/ProductList.js"></script>-->
-<!--<script src="components/ProductSell.js"></script>-->
+<script src="components/Product.js"></script>
+<script src="components/ProductForm.js"></script>
+<script src="components/ProductList.js"></script>
+<script src="components/ProductChoose.js"></script>
 
-<!--Mount App-->
 <script>
+    <!--Mount App-->
     const mountedApp = app.mount('#app');
 </script>
+
 </body>
 </html>
